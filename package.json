@@ -1,0 +1,43 @@
+{
+  "name": "npm-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon bin/run",
+    "lint": "./node_modules/.bin/eslint routes app.js --quiet --fix"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "debug": "^2.2.0",
+    "jade": "~1.11.0",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^2.0.1",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^1.1.1",
+    "koa-logger": "^1.3.0",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.0.0",
+    "koa-static": "^2.0.0",
+    "runkoa": "^1.3.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "eslint": "^2.9.0",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
+    "pre-git": "^3.8.3",
+    "should": "^8.3.1"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [],
+      "pre-push": [
+        "npm run lint"
+      ],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  }
+}
